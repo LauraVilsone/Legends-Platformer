@@ -11,13 +11,15 @@ public class GetHit : MonoBehaviour
 
     private bool slipping = false;
     private PlayerMovement playerMovementScript;
+    private PlayerStats playerStats;
     private Rigidbody rb;
     private Transform enemy;
 
     private void Start()
     {
         playerMovementScript = GetComponent<PlayerMovement>();
-        rb = GetComponent<Rigidbody>();
+		playerStats = GetComponent<PlayerStats>();
+		rb = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
     {
@@ -62,8 +64,8 @@ public class GetHit : MonoBehaviour
     private void TakeDamage()
     {
         hurt = true;
-        playerMovementScript.playerStats.health = playerMovementScript.playerStats.health - enemyDamage;
-        Debug.Log(playerMovementScript.playerStats.health);
+        playerStats.health = playerStats.health - enemyDamage;
+        Debug.Log(playerStats.health);
         playerMovementScript.playerStats.canMove = false;
         playerMovementScript.soundManager.PlayHitSound();
         StartCoroutine("Recover");
