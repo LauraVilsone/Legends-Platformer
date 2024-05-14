@@ -11,7 +11,7 @@ public class PatrolPoints : MonoBehaviour
     public void Partol()
     {
         Vector3 moveToPoint = patrolPoints[currentPatrolPoint].position;
-        transform.position = Vector3.MoveTowards(transform.position, moveToPoint, RefactorEnemy.enemyStats.walkSpeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, moveToPoint, RefactorEnemy.enemyStats.walkSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, moveToPoint) < 0.01f)
         {

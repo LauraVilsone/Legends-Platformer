@@ -73,8 +73,8 @@ public class RefactorEnemy : MonoBehaviour
     private void Update()
     {
         // changes the enemy's behavior: pacing in circles or chasing the player
-        if (enemyStats.idle == true) {PatrolPoints.Partol();}
-        else if (enemyStats.idle == false)
+        //if (enemyStats.idle == true) {PatrolPoints.Partol();}
+        //else if (enemyStats.idle == false)
         {Chase();}
     }
     private void OnCollisionEnter(Collision other)
