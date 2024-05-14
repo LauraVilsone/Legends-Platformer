@@ -10338,7 +10338,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238474744}
-  m_LocalRotation: {x: 0.00018266581, y: 0.9959632, z: 0.002027293, w: -0.089739606}
+  m_LocalRotation: {x: 0.00018266615, y: 0.9959632, z: 0.0020272967, w: -0.089739606}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15169,7 +15169,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680226749}
-  m_LocalRotation: {x: 0.00018266586, y: 0.9959632, z: 0.0020272934, w: -0.089739606}
+  m_LocalRotation: {x: 0.00018266594, y: 0.9959632, z: 0.0020272944, w: -0.089739606}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15749,7 +15749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &705455918
 Transform:
   m_ObjectHideFlags: 0
@@ -49973,6 +49973,7 @@ MonoBehaviour:
   slipping: 0
   facing: 0
   rb: {fileID: 0}
+  patrolBehavior: {fileID: 0}
 --- !u!135 &1336565509
 SphereCollider:
   m_ObjectHideFlags: 0

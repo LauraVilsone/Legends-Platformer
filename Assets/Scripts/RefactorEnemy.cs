@@ -24,11 +24,12 @@ public class RefactorEnemy : MonoBehaviour
     public Rigidbody rb;
 
     private GameObject player;
+	public PatrolFinished patrolBehavior;
 
-    /// <summary>
-    /// Contains tunable parameters to tweak the enemy's movement and behavior.
-    /// </summary>
-    [System.Serializable]
+	/// <summary>
+	/// Contains tunable parameters to tweak the enemy's movement and behavior.
+	/// </summary>
+	[System.Serializable]
     public struct Stats
     {
         [Header("Enemy Settings")]
@@ -51,32 +52,27 @@ public class RefactorEnemy : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
+		patrolBehavior = GetComponent<PatrolFinished>();
+	}
     
 
     private void Chase()
     {
-        sight.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-        transform.LookAt(sight);
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * enemyStats.chaseSpeed);
-        if (Vector3.Distance(transform.position, player.transform.position) < enemyStats.explodeDist)
-        {
-            StartCoroutine("Explode");
-            enemyStats.idle = true;
-        }
-        // stops enemy from following player up the inaccessible slopes
-        if (slipping == true)
-        {
-            transform.Translate(Vector3.back * 20 * Time.deltaTime, Space.World);
-        }
-    }
+		sight.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+		transform.LookAt(sight);
+		transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * enemyStats.chaseSpeed);
+	}
     private void Update()
     {
-        // changes the enemy's behavior: pacing in circles or chasing the player
-        //if (enemyStats.idle == true) {PatrolPoints.Partol();}
-        //else if (enemyStats.idle == false)
-        {Chase();}
-    }
+		if (enemyStats.idle == true)
+		{
+			patrolBehavior.Move(enemyStats.walkSpeed);
+		}
+		else if (enemyStats.idle == false)
+		{
+			Chase();
+		}
+	}
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer == 9)
