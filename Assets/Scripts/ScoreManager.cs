@@ -21,7 +21,8 @@ public class ScoreManager : MonoBehaviour
             if(playerStats.health <= playerStats.playerStartingHealth - 1)
             {
                 playerStats.health++;
-                Debug.Log(playerStats.health);
+				playerStats.UpdateHealthUI();
+				Debug.Log(playerStats.health);
             }
         }
     }
